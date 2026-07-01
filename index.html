@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gold Signals Pro — #1 XAU/USD Telegram Channel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Gold Signals Pro — XAU/USD Telegram</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -13,16 +13,9 @@
                 extend: {
                     colors: {
                         gold: {
-                            50: '#fffbeb',
-                            100: '#fef3c7',
-                            200: '#fde68a',
-                            300: '#fcd34d',
-                            400: '#fbbf24',
-                            500: '#f59e0b',
-                            600: '#d97706',
-                            700: '#b45309',
-                            800: '#92400e',
-                            900: '#78350f',
+                            50: '#fffbeb', 100: '#fef3c7', 200: '#fde68a', 300: '#fcd34d',
+                            400: '#fbbf24', 500: '#f59e0b', 600: '#d97706', 700: '#b45309',
+                            800: '#92400e', 900: '#78350f',
                         }
                     }
                 }
@@ -30,20 +23,18 @@
         }
     </script>
     <style>
-        * { font-family: 'Inter', sans-serif; }
+        * { font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
         html { scroll-behavior: smooth; }
+        body { -webkit-font-smoothing: antialiased; overscroll-behavior: none; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
         @keyframes pulse-glow-gold {
             0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.5); }
             50% { box-shadow: 0 0 0 14px rgba(245, 158, 11, 0); }
         }
         .pulse-glow-gold { animation: pulse-glow-gold 2s ease-in-out infinite; }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
-        .float-anim { animation: float 3s ease-in-out infinite; }
+
         @keyframes shimmer {
             0% { background-position: -200% center; }
             100% { background-position: 200% center; }
@@ -53,478 +44,408 @@
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
             animation: shimmer 4s linear infinite;
         }
-        .ticker-scroll { animation: scroll 25s linear infinite; }
+
+        .gold-gradient { background: linear-gradient(135deg, #f59e0b, #d97706); }
+
+        .ticker-scroll { animation: scroll 20s linear infinite; }
         @keyframes scroll {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
+
         .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(24px); border: 1px solid rgba(255,255,255,0.1); }
-        .glass-light { background: rgba(255,255,255,0.92); backdrop-filter: blur(24px); }
-        .gold-gradient { background: linear-gradient(135deg, #f59e0b, #d97706); }
-        .gold-gradient-text { background: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* Safe area for notched phones */
+        .safe-bottom { padding-bottom: max(1rem, env(safe-area-inset-bottom)); }
+
+        /* Smooth fade in */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Active press effect */
+        .press { transition: transform 0.1s ease; }
+        .press:active { transform: scale(0.97); }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 antialiased">
 
-    <!-- Ticker Bar -->
-    <div class="bg-slate-900 text-white overflow-hidden py-2.5 border-b border-slate-800">
+    <!-- Mini Ticker -->
+    <div class="bg-slate-900 text-white overflow-hidden py-2">
         <div class="flex whitespace-nowrap ticker-scroll">
-            <span class="mx-6 text-xs font-medium tracking-wide">XAU/USD <span class="text-green-400">$2,432.50 +0.84%</span></span>
-            <span class="mx-6 text-xs font-medium tracking-wide">XAG/USD <span class="text-green-400">$28.65 +1.12%</span></span>
-            <span class="mx-6 text-xs font-medium tracking-wide">XAU/EUR <span class="text-green-400">€2,238.30 +0.76%</span></span>
-            <span class="mx-6 text-xs font-medium tracking-wide">XAU/GBP <span class="text-green-400">£1,912.80 +0.68%</span></span>
-            <span class="mx-6 text-xs font-medium tracking-wide">DXY <span class="text-red-400">104.20 -0.32%</span></span>
-            <span class="mx-6 text-xs font-medium tracking-wide">US 10Y <span class="text-red-400">4.28% -0.03</span></span>
-            <span class="mx-6 text-xs font-medium tracking-wide">XPT/USD <span class="text-green-400">$1,024.50 +0.45%</span></span>
-            <span class="mx-6 text-xs font-medium tracking-wide">XPD/USD <span class="text-red-400">$968.20 -0.22%</span></span>
-            <!-- duplicate -->
-            <span class="mx-6 text-xs font-medium tracking-wide">XAU/USD <span class="text-green-400">$2,432.50 +0.84%</span></span>
-            <span class="mx-6 text-xs font-medium tracking-wide">XAG/USD <span class="text-green-400">$28.65 +1.12%</span></span>
-            <span class="mx-6 text-xs font-medium tracking-wide">XAU/EUR <span class="text-green-400">€2,238.30 +0.76%</span></span>
-            <span class="mx-6 text-xs font-medium tracking-wide">XAU/GBP <span class="text-green-400">£1,912.80 +0.68%</span></span>
-            <span class="mx-6 text-xs font-medium tracking-wide">DXY <span class="text-red-400">104.20 -0.32%</span></span>
-            <span class="mx-6 text-xs font-medium tracking-wide">US 10Y <span class="text-red-400">4.28% -0.03</span></span>
-            <span class="mx-6 text-xs font-medium tracking-wide">XPT/USD <span class="text-green-400">$1,024.50 +0.45%</span></span>
-            <span class="mx-6 text-xs font-medium tracking-wide">XPD/USD <span class="text-red-400">$968.20 -0.22%</span></span>
+            <span class="mx-5 text-[11px] font-medium">XAU/USD <span class="text-green-400">$2,432.50 +0.84%</span></span>
+            <span class="mx-5 text-[11px] font-medium">XAG/USD <span class="text-green-400">$28.65 +1.12%</span></span>
+            <span class="mx-5 text-[11px] font-medium">DXY <span class="text-red-400">104.20 -0.32%</span></span>
+            <span class="mx-5 text-[11px] font-medium">US 10Y <span class="text-red-400">4.28% -0.03</span></span>
+            <span class="mx-5 text-[11px] font-medium">XAU/EUR <span class="text-green-400">€2,238 +0.76%</span></span>
+            <span class="mx-5 text-[11px] font-medium">XPT/USD <span class="text-green-400">$1,024 +0.45%</span></span>
+            <span class="mx-5 text-[11px] font-medium">XAU/USD <span class="text-green-400">$2,432.50 +0.84%</span></span>
+            <span class="mx-5 text-[11px] font-medium">XAG/USD <span class="text-green-400">$28.65 +1.12%</span></span>
+            <span class="mx-5 text-[11px] font-medium">DXY <span class="text-red-400">104.20 -0.32%</span></span>
+            <span class="mx-5 text-[11px] font-medium">US 10Y <span class="text-red-400">4.28% -0.03</span></span>
+            <span class="mx-5 text-[11px] font-medium">XAU/EUR <span class="text-green-400">€2,238 +0.76%</span></span>
+            <span class="mx-5 text-[11px] font-medium">XPT/USD <span class="text-green-400">$1,024 +0.45%</span></span>
         </div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="sticky top-0 z-50 glass-light border-b border-slate-200/80">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8 h-16 flex items-center justify-between">
-            <div class="flex items-center gap-2.5">
-                <div class="h-8 w-8 gold-gradient rounded-lg flex items-center justify-center">
-                    <i data-lucide="gem" class="w-5 h-5 text-white"></i>
+    <!-- Sticky Top Bar -->
+    <div class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100">
+        <div class="flex items-center justify-between px-4 h-12">
+            <div class="flex items-center gap-2">
+                <div class="h-7 w-7 gold-gradient rounded-md flex items-center justify-center">
+                    <i data-lucide="gem" class="w-4 h-4 text-white"></i>
                 </div>
-                <span class="text-lg font-semibold tracking-tight">Gold Signals <span class="text-gold-500">Pro</span></span>
+                <span class="text-sm font-semibold">Gold Signals <span class="text-gold-500">Pro</span></span>
             </div>
-            <div class="hidden md:flex items-center gap-8">
-                <a href="#results" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Results</a>
-                <a href="#features" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition">What You Get</a>
-                <a href="#testimonials" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Reviews</a>
-                <a href="#faq" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition">FAQ</a>
+            <div class="flex items-center gap-2">
+                <span class="relative flex h-2 w-2 mr-1">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                <span class="text-[11px] text-slate-400">8.5K online</span>
             </div>
-            <a href="https://t.me/yourchannel" target="_blank" class="gold-gradient text-white text-sm font-medium px-5 py-2.5 rounded-lg transition shadow-sm hover:opacity-90" style="box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 1px 3px rgba(0,0,0,0.1);">
-                Join Free
-            </a>
         </div>
-    </nav>
+    </div>
 
-    <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-slate-900">
+    <!-- Hero -->
+    <section class="relative bg-slate-900 overflow-hidden">
         <div class="absolute inset-0">
-            <img src="https://picsum.photos/seed/gold-bars-dark-luxury/1920/1080.jpg" alt="" class="w-full h-full object-cover opacity-15">
-            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/90 to-slate-900"></div>
+            <img src="https://picsum.photos/seed/gold-dark-mobile/800/1200.jpg" alt="" class="w-full h-full object-cover opacity-12">
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-900/90 to-slate-900"></div>
         </div>
-        <div class="absolute top-10 -left-40 w-[500px] h-[500px] bg-gold-500/10 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-gold-600/8 rounded-full blur-3xl"></div>
+        <div class="absolute top-10 -left-32 w-[300px] h-[300px] bg-gold-500/10 rounded-full blur-3xl"></div>
 
-        <div class="relative mx-auto max-w-7xl px-6 lg:px-8 pt-20 lg:pt-32 pb-24 lg:pb-40">
-            <div class="grid lg:grid-cols-2 gap-16 lg:gap-8 items-center">
-                <!-- Left Content -->
-                <div>
-                    <div class="inline-flex items-center gap-2 bg-gold-500/10 border border-gold-500/20 rounded-full px-4 py-1.5 mb-8">
-                        <span class="relative flex h-2 w-2">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-gold-500"></span>
-                        </span>
-                        <span class="text-xs font-medium text-gold-300 tracking-wide">GOLD SIGNAL LIVE NOW</span>
-                    </div>
+        <div class="relative px-5 pt-10 pb-8">
+            <!-- Live badge -->
+            <div class="inline-flex items-center gap-2 bg-gold-500/10 border border-gold-500/20 rounded-full px-3 py-1.5 mb-6">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-gold-500"></span>
+                </span>
+                <span class="text-[11px] font-medium text-gold-300 tracking-wide">GOLD SIGNAL LIVE NOW</span>
+            </div>
 
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white tracking-tight leading-none mb-6">
-                        XAU/USD Signals<br>
-                        <span class="gold-shimmer">That Actually Work.</span>
-                    </h1>
+            <h1 class="text-[32px] font-bold text-white tracking-tight leading-[1.1] mb-4">
+                XAU/USD Signals<br>
+                <span class="gold-shimmer">That Actually Work.</span>
+            </h1>
 
-                    <p class="text-lg text-slate-400 leading-relaxed max-w-lg mb-10">
-                        Precise gold signals with entry, TP & SL — delivered instantly to Telegram. <strong class="text-white">8,500+ gold traders</strong> trust us daily. Join free.
-                    </p>
+            <p class="text-[15px] text-slate-400 leading-relaxed mb-7">
+                Precise gold signals with entry, TP & SL — delivered instantly to Telegram. <strong class="text-white">8,500+ traders</strong> trust us.
+            </p>
 
-                    <div class="flex flex-col sm:flex-row gap-4 mb-12">
-                        <a href="https://t.me/yourchannel" target="_blank" class="pulse-glow-gold inline-flex items-center justify-center gap-2.5 gold-gradient text-white font-medium px-8 py-3.5 rounded-xl transition text-base hover:opacity-90" style="box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 4px 16px rgba(245,158,11,0.4);">
-                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-                            Join Telegram Free
-                        </a>
-                        <a href="#results" class="inline-flex items-center justify-center gap-2 border border-white/20 hover:border-white/40 text-white font-medium px-8 py-3.5 rounded-xl transition text-base">
-                            <i data-lucide="play-circle" class="w-5 h-5"></i>
-                            See Results
-                        </a>
-                    </div>
+            <!-- CTA Button -->
+            <a href="https://t.me/yourchannel" target="_blank" class="pulse-glow-gold press flex items-center justify-center gap-2.5 gold-gradient text-white font-semibold w-full py-4 rounded-2xl text-base mb-4" style="box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 4px 20px rgba(245,158,11,0.4);">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                Join Telegram — It's Free
+            </a>
 
-                    <!-- Mini Stats -->
-                    <div class="flex items-center gap-8">
-                        <div>
-                            <div class="text-2xl font-semibold text-white">8,500+</div>
-                            <div class="text-xs text-slate-500 mt-0.5">Gold Traders</div>
-                        </div>
-                        <div class="w-px h-10 bg-white/10"></div>
-                        <div>
-                            <div class="text-2xl font-semibold text-white">81%</div>
-                            <div class="text-xs text-slate-500 mt-0.5">Win Rate</div>
-                        </div>
-                        <div class="w-px h-10 bg-white/10"></div>
-                        <div>
-                            <div class="text-2xl font-semibold text-white">3 yrs</div>
-                            <div class="text-xs text-slate-500 mt-0.5">On Gold</div>
-                        </div>
-                    </div>
+            <p class="text-center text-[11px] text-slate-500">No spam • Unsubscribe anytime</p>
+
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-3 gap-3 mt-8">
+                <div class="bg-white/5 border border-white/10 rounded-xl p-3 text-center">
+                    <div class="text-xl font-bold text-white">8,500+</div>
+                    <div class="text-[10px] text-slate-500 mt-0.5">Members</div>
                 </div>
-
-                <!-- Right - Gold Signal Card Preview -->
-                <div class="float-anim hidden lg:block">
-                    <div class="glass rounded-2xl p-6 max-w-sm ml-auto" style="background: rgba(15,23,42,0.85); border: 1px solid rgba(245,158,11,0.15);">
-                        <div class="flex items-center gap-3 mb-5">
-                            <div class="h-10 w-10 gold-gradient rounded-full flex items-center justify-center">
-                                <i data-lucide="gem" class="w-5 h-5 text-white"></i>
-                            </div>
-                            <div>
-                                <div class="text-white text-sm font-semibold">Gold Signals Pro</div>
-                                <div class="text-slate-500 text-xs">XAU/USD Specialist</div>
-                            </div>
-                            <div class="ml-auto bg-gold-500/20 text-gold-400 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Live</div>
-                        </div>
-
-                        <!-- Signal 1 -->
-                        <div class="bg-white/5 rounded-xl p-4 mb-3 border border-gold-500/10">
-                            <div class="flex items-center justify-between mb-3">
-                                <div class="flex items-center gap-2">
-                                    <span class="text-white font-semibold text-sm">XAU/USD</span>
-                                    <span class="text-[10px] text-slate-500 bg-white/5 px-1.5 py-0.5 rounded">Buy</span>
-                                </div>
-                                <span class="bg-green-500/20 text-green-400 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">▲ Long</span>
-                            </div>
-                            <div class="grid grid-cols-3 gap-3 text-xs mb-3">
-                                <div>
-                                    <div class="text-slate-500 mb-0.5">Entry</div>
-                                    <div class="text-white font-mono font-medium">2428.50</div>
-                                </div>
-                                <div>
-                                    <div class="text-slate-500 mb-0.5">TP 1 / TP 2</div>
-                                    <div class="text-green-400 font-mono font-medium">2438 / 2448</div>
-                                </div>
-                                <div>
-                                    <div class="text-slate-500 mb-0.5">Stop Loss</div>
-                                    <div class="text-red-400 font-mono font-medium">2422.00</div>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-between text-[10px]">
-                                <span class="text-slate-500">Risk: 6.50 | Reward: 19.50</span>
-                                <span class="text-gold-400 font-bold">R:R 1:3</span>
-                            </div>
-                            <div class="mt-3 flex items-center gap-2">
-                                <div class="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gold-500 rounded-full transition-all" style="width: 60%"></div>
-                                </div>
-                                <span class="text-gold-400 text-[10px] font-bold">TP 1 Hit ✓</span>
-                            </div>
-                        </div>
-
-                        <!-- Signal 2 -->
-                        <div class="bg-white/5 rounded-xl p-4 mb-3 border border-white/5">
-                            <div class="flex items-center justify-between mb-3">
-                                <div class="flex items-center gap-2">
-                                    <span class="text-white font-semibold text-sm">XAU/USD</span>
-                                    <span class="text-[10px] text-slate-500 bg-white/5 px-1.5 py-0.5 rounded">Sell</span>
-                                </div>
-                                <span class="bg-red-500/20 text-red-400 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">▼ Short</span>
-                            </div>
-                            <div class="grid grid-cols-3 gap-3 text-xs mb-3">
-                                <div>
-                                    <div class="text-slate-500 mb-0.5">Entry</div>
-                                    <div class="text-white font-mono font-medium">2445.20</div>
-                                </div>
-                                <div>
-                                    <div class="text-slate-500 mb-0.5">TP 1 / TP 2</div>
-                                    <div class="text-green-400 font-mono font-medium">2435 / 2425</div>
-                                </div>
-                                <div>
-                                    <div class="text-slate-500 mb-0.5">Stop Loss</div>
-                                    <div class="text-red-400 font-mono font-medium">2451.00</div>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-between text-[10px]">
-                                <span class="text-slate-500">Risk: 5.80 | Reward: 20.20</span>
-                                <span class="text-gold-400 font-bold">R:R 1:3.5</span>
-                            </div>
-                            <div class="mt-3 flex items-center gap-2">
-                                <div class="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden">
-                                    <div class="h-full bg-blue-500 rounded-full" style="width: 25%"></div>
-                                </div>
-                                <span class="text-blue-400 text-[10px] font-bold">Running…</span>
-                            </div>
-                        </div>
-
-                        <!-- Closed signal -->
-                        <div class="bg-white/5 rounded-xl p-4 border border-white/5 opacity-75">
-                            <div class="flex items-center justify-between mb-2">
-                                <div class="flex items-center gap-2">
-                                    <span class="text-white font-semibold text-sm">XAU/USD</span>
-                                </div>
-                                <span class="bg-green-500/20 text-green-400 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">✓ TP 2 Hit</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-slate-500 text-xs">Sell @ 2418 → TP2 @ 2398</span>
-                                <span class="text-green-400 text-sm font-bold">+$20.00</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="bg-white/5 border border-white/10 rounded-xl p-3 text-center">
+                    <div class="text-xl font-bold text-white">81%</div>
+                    <div class="text-[10px] text-slate-500 mt-0.5">Win Rate</div>
+                </div>
+                <div class="bg-white/5 border border-white/10 rounded-xl p-3 text-center">
+                    <div class="text-xl font-bold text-white">3 yrs</div>
+                    <div class="text-[10px] text-slate-500 mt-0.5">On Gold</div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Social Proof Bar -->
-    <section class="bg-white border-b border-slate-200">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8 py-8">
-            <p class="text-center text-xs font-medium text-slate-400 uppercase tracking-widest mb-6">Trusted by gold traders on these platforms</p>
-            <div class="flex flex-wrap items-center justify-center gap-x-12 gap-y-4 opacity-40">
-                <span class="text-xl font-bold tracking-tight text-slate-900">XM</span>
-                <span class="text-xl font-bold tracking-tight text-slate-900">Exness</span>
-                <span class="text-xl font-bold tracking-tight text-slate-900">Vantage</span>
-                <span class="text-xl font-bold tracking-tight text-slate-900">EC Market</span>
-                <span class="text-xl font-bold tracking-tight text-slate-900">Delta Exchange</span>
-                <span class="text-xl font-bold tracking-tight text-slate-900">Prop Firm</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Results Section -->
-    <section id="results" class="py-24 bg-white">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-xs font-medium text-gold-600 uppercase tracking-widest mb-4 block">Verified Gold Results</span>
-                <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-4">Our XAU/USD Track Record</h2>
-                <p class="text-slate-500 text-lg leading-relaxed">Every gold signal tracked and verified. Here's the last 12 months on XAU/USD only.</p>
-            </div>
-
-            <!-- Stats Grid -->
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-                <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-100">
-                    <div class="text-3xl md:text-4xl font-semibold text-gold-600 mb-1">842</div>
-                    <div class="text-sm text-slate-500">Gold Signals Sent</div>
-                </div>
-                <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-100">
-                    <div class="text-3xl md:text-4xl font-semibold text-green-600 mb-1">81.2%</div>
-                    <div class="text-sm text-slate-500">Win Rate</div>
-                </div>
-                <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-100">
-                    <div class="text-3xl md:text-4xl font-semibold text-gold-600 mb-1">+$6,240</div>
-                    <div class="text-sm text-slate-500">Points Profit (Year)</div>
-                </div>
-                <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-100">
-                    <div class="text-3xl md:text-4xl font-semibold text-green-600 mb-1">1:3.2</div>
-                    <div class="text-sm text-slate-500">Avg Risk/Reward</div>
-                </div>
-            </div>
-
-            <!-- Monthly Performance Chart -->
-            <div class="bg-slate-900 rounded-2xl p-8 md:p-10">
-                <div class="flex items-center justify-between mb-8">
+        <!-- Signal Preview Card -->
+        <div class="px-5 pb-8">
+            <div class="glass rounded-2xl p-4" style="background: rgba(15,23,42,0.85); border-color: rgba(245,158,11,0.15);">
+                <div class="flex items-center gap-2.5 mb-4">
+                    <div class="h-8 w-8 gold-gradient rounded-full flex items-center justify-center">
+                        <i data-lucide="gem" class="w-4 h-4 text-white"></i>
+                    </div>
                     <div>
-                        <h3 class="text-white font-semibold text-lg">XAU/USD Monthly Performance</h3>
-                        <p class="text-xs text-slate-500 mt-1">Points gained/lost per month</p>
+                        <div class="text-white text-[13px] font-semibold">Gold Signals Pro</div>
+                        <div class="text-slate-500 text-[10px]">XAU/USD Specialist</div>
                     </div>
-                    <div class="text-right">
-                        <div class="text-gold-400 text-xl font-semibold">+$6,240</div>
-                        <div class="text-xs text-slate-500">Total 12-month points</div>
+                    <div class="ml-auto bg-gold-500/20 text-gold-400 text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Live</div>
+                </div>
+
+                <!-- Active Signal -->
+                <div class="bg-white/5 rounded-xl p-3.5 mb-2.5 border border-gold-500/10">
+                    <div class="flex items-center justify-between mb-2.5">
+                        <span class="text-white font-semibold text-[13px]">XAU/USD</span>
+                        <span class="bg-green-500/20 text-green-400 text-[9px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">▲ Buy</span>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 text-[11px] mb-2.5">
+                        <div>
+                            <div class="text-slate-500 mb-0.5 text-[10px]">Entry</div>
+                            <div class="text-white font-mono font-medium">2428.50</div>
+                        </div>
+                        <div>
+                            <div class="text-slate-500 mb-0.5 text-[10px]">TP 1 / TP 2</div>
+                            <div class="text-green-400 font-mono font-medium">2438 / 2448</div>
+                        </div>
+                        <div>
+                            <div class="text-slate-500 mb-0.5 text-[10px]">Stop Loss</div>
+                            <div class="text-red-400 font-mono font-medium">2422.00</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between text-[10px] mb-2">
+                        <span class="text-slate-500">R:R <span class="text-gold-400 font-bold">1:3</span></span>
+                        <span class="text-slate-500">Risk 6.5 | Reward 19.5</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div class="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden">
+                            <div class="h-full bg-gold-500 rounded-full" style="width: 60%"></div>
+                        </div>
+                        <span class="text-gold-400 text-[10px] font-bold">TP 1 Hit ✓</span>
                     </div>
                 </div>
-                <div class="flex items-end gap-2 md:gap-3 h-52">
-                    <div class="flex-1 flex flex-col items-center gap-2">
-                        <span class="text-[10px] text-green-400 font-medium">+420</span>
-                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-lg" style="height: 55%"></div>
-                        <span class="text-[10px] text-slate-500">Jan</span>
-                    </div>
-                    <div class="flex-1 flex flex-col items-center gap-2">
-                        <span class="text-[10px] text-green-400 font-medium">+580</span>
-                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-lg" style="height: 72%"></div>
-                        <span class="text-[10px] text-slate-500">Feb</span>
-                    </div>
-                    <div class="flex-1 flex flex-col items-center gap-2">
-                        <span class="text-[10px] text-red-400 font-medium">-180</span>
-                        <div class="w-full bg-gradient-to-t from-red-700 to-red-400 rounded-t-lg" style="height: 15%"></div>
-                        <span class="text-[10px] text-slate-500">Mar</span>
-                    </div>
-                    <div class="flex-1 flex flex-col items-center gap-2">
-                        <span class="text-[10px] text-green-400 font-medium">+720</span>
-                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-lg" style="height: 90%"></div>
-                        <span class="text-[10px] text-slate-500">Apr</span>
-                    </div>
-                    <div class="flex-1 flex flex-col items-center gap-2">
-                        <span class="text-[10px] text-green-400 font-medium">+490</span>
-                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-lg" style="height: 60%"></div>
-                        <span class="text-[10px] text-slate-500">May</span>
-                    </div>
-                    <div class="flex-1 flex flex-col items-center gap-2">
-                        <span class="text-[10px] text-green-400 font-medium">+650</span>
-                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-lg" style="height: 82%"></div>
-                        <span class="text-[10px] text-slate-500">Jun</span>
-                    </div>
-                    <div class="flex-1 flex flex-col items-center gap-2">
-                        <span class="text-[10px] text-green-400 font-medium">+380</span>
-                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-lg" style="height: 48%"></div>
-                        <span class="text-[10px] text-slate-500">Jul</span>
-                    </div>
-                    <div class="flex-1 flex flex-col items-center gap-2">
-                        <span class="text-[10px] text-red-400 font-medium">-120</span>
-                        <div class="w-full bg-gradient-to-t from-red-700 to-red-400 rounded-t-lg" style="height: 10%"></div>
-                        <span class="text-[10px] text-slate-500">Aug</span>
-                    </div>
-                    <div class="flex-1 flex flex-col items-center gap-2">
-                        <span class="text-[10px] text-green-400 font-medium">+810</span>
-                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-lg" style="height: 100%"></div>
-                        <span class="text-[10px] text-slate-500">Sep</span>
-                    </div>
-                    <div class="flex-1 flex flex-col items-center gap-2">
-                        <span class="text-[10px] text-green-400 font-medium">+540</span>
-                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-lg" style="height: 68%"></div>
-                        <span class="text-[10px] text-slate-500">Oct</span>
-                    </div>
-                    <div class="flex-1 flex flex-col items-center gap-2">
-                        <span class="text-[10px] text-green-400 font-medium">+690</span>
-                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-lg" style="height: 87%"></div>
-                        <span class="text-[10px] text-slate-500">Nov</span>
-                    </div>
-                    <div class="flex-1 flex flex-col items-center gap-2">
-                        <span class="text-[10px] text-gold-400 font-medium">+400</span>
-                        <div class="w-full bg-gradient-to-t from-gold-600 to-gold-400 rounded-t-lg" style="height: 50%"></div>
-                        <span class="text-[10px] text-slate-500">Dec</span>
+
+                <!-- Closed Signal -->
+                <div class="bg-white/5 rounded-xl p-3.5 border border-white/5 opacity-70">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <div class="text-white font-semibold text-[13px]">XAU/USD</div>
+                            <div class="text-slate-500 text-[10px]">Sell @ 2418 → TP2 @ 2398</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="bg-green-500/20 text-green-400 text-[9px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">✓ Closed</div>
+                            <div class="text-green-400 text-[13px] font-bold mt-1">+$20.00</div>
+                        </div>
                     </div>
                 </div>
-                <div class="flex items-center gap-6 mt-6 pt-6 border-t border-white/10">
-                    <div class="flex items-center gap-2"><div class="w-3 h-3 rounded bg-gradient-to-t from-green-600 to-green-400"></div><span class="text-xs text-slate-400">Profit Month</span></div>
-                    <div class="flex items-center gap-2"><div class="w-3 h-3 rounded bg-gradient-to-t from-red-700 to-red-400"></div><span class="text-xs text-slate-400">Loss Month</span></div>
-                    <div class="flex items-center gap-2"><div class="w-3 h-3 rounded bg-gradient-to-t from-gold-600 to-gold-400"></div><span class="text-xs text-slate-400">Current Month</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Broker Strip -->
+    <div class="bg-white border-b border-slate-100 py-4 overflow-hidden">
+        <p class="text-center text-[10px] font-medium text-slate-400 uppercase tracking-widest mb-3">Trusted on these platforms</p>
+        <div class="flex items-center justify-center gap-5 opacity-35 px-4">
+            <span class="text-sm font-bold text-slate-900 whitespace-nowrap">IC Markets</span>
+            <span class="text-sm font-bold text-slate-900 whitespace-nowrap">Exness</span>
+            <span class="text-sm font-bold text-slate-900 whitespace-nowrap">Pepperstone</span>
+            <span class="text-sm font-bold text-slate-900 whitespace-nowrap">XM</span>
+            <span class="text-sm font-bold text-slate-900 whitespace-nowrap">FTMO</span>
+        </div>
+    </div>
+
+    <!-- Results -->
+    <section class="py-8 bg-white">
+        <div class="px-5 fade-up">
+            <span class="text-[11px] font-medium text-gold-600 uppercase tracking-widest mb-3 block">Verified Results</span>
+            <h2 class="text-2xl font-bold tracking-tight mb-2">Our XAU/USD Track Record</h2>
+            <p class="text-sm text-slate-500 leading-relaxed mb-6">Last 12 months on gold only.</p>
+
+            <div class="grid grid-cols-2 gap-3 mb-6">
+                <div class="bg-slate-50 rounded-xl p-4 text-center border border-slate-100">
+                    <div class="text-2xl font-bold text-gold-600">842</div>
+                    <div class="text-[11px] text-slate-500 mt-0.5">Gold Signals</div>
+                </div>
+                <div class="bg-slate-50 rounded-xl p-4 text-center border border-slate-100">
+                    <div class="text-2xl font-bold text-green-600">81.2%</div>
+                    <div class="text-[11px] text-slate-500 mt-0.5">Win Rate</div>
+                </div>
+                <div class="bg-slate-50 rounded-xl p-4 text-center border border-slate-100">
+                    <div class="text-2xl font-bold text-gold-600">+$6,240</div>
+                    <div class="text-[11px] text-slate-500 mt-0.5">Points (Year)</div>
+                </div>
+                <div class="bg-slate-50 rounded-xl p-4 text-center border border-slate-100">
+                    <div class="text-2xl font-bold text-green-600">1:3.2</div>
+                    <div class="text-[11px] text-slate-500 mt-0.5">Avg R:R</div>
+                </div>
+            </div>
+
+            <!-- Mini Chart -->
+            <div class="bg-slate-900 rounded-2xl p-5">
+                <div class="flex items-center justify-between mb-5">
+                    <h3 class="text-white font-semibold text-sm">Monthly Performance</h3>
+                    <span class="text-gold-400 text-sm font-bold">+$6,240</span>
+                </div>
+                <div class="flex items-end gap-1.5 h-36">
+                    <div class="flex-1 flex flex-col items-center gap-1">
+                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-sm" style="height: 55%"></div>
+                        <span class="text-[8px] text-slate-500">J</span>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center gap-1">
+                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-sm" style="height: 72%"></div>
+                        <span class="text-[8px] text-slate-500">F</span>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center gap-1">
+                        <div class="w-full bg-gradient-to-t from-red-700 to-red-400 rounded-t-sm" style="height: 15%"></div>
+                        <span class="text-[8px] text-slate-500">M</span>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center gap-1">
+                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-sm" style="height: 90%"></div>
+                        <span class="text-[8px] text-slate-500">A</span>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center gap-1">
+                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-sm" style="height: 60%"></div>
+                        <span class="text-[8px] text-slate-500">M</span>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center gap-1">
+                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-sm" style="height: 82%"></div>
+                        <span class="text-[8px] text-slate-500">J</span>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center gap-1">
+                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-sm" style="height: 48%"></div>
+                        <span class="text-[8px] text-slate-500">J</span>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center gap-1">
+                        <div class="w-full bg-gradient-to-t from-red-700 to-red-400 rounded-t-sm" style="height: 10%"></div>
+                        <span class="text-[8px] text-slate-500">A</span>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center gap-1">
+                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-sm" style="height: 100%"></div>
+                        <span class="text-[8px] text-slate-500">S</span>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center gap-1">
+                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-sm" style="height: 68%"></div>
+                        <span class="text-[8px] text-slate-500">O</span>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center gap-1">
+                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-sm" style="height: 87%"></div>
+                        <span class="text-[8px] text-slate-500">N</span>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center gap-1">
+                        <div class="w-full bg-gradient-to-t from-gold-600 to-gold-400 rounded-t-sm" style="height: 50%"></div>
+                        <span class="text-[8px] text-gold-400">D</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 mt-4 pt-3 border-t border-white/10">
+                    <div class="flex items-center gap-1.5"><div class="w-2.5 h-2.5 rounded-sm bg-green-500"></div><span class="text-[10px] text-slate-400">Profit</span></div>
+                    <div class="flex items-center gap-1.5"><div class="w-2.5 h-2.5 rounded-sm bg-red-500"></div><span class="text-[10px] text-slate-400">Loss</span></div>
+                    <div class="flex items-center gap-1.5"><div class="w-2.5 h-2.5 rounded-sm bg-gold-500"></div><span class="text-[10px] text-slate-400">Now</span></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- What You Get -->
-    <section id="features" class="py-24 bg-slate-50">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-xs font-medium text-gold-600 uppercase tracking-widest mb-4 block">What You Get</span>
-                <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-4">Everything for Gold Trading</h2>
-                <p class="text-slate-500 text-lg leading-relaxed">We eat, sleep, and breathe XAU/USD — so you don't have to.</p>
-            </div>
+    <section class="py-8 bg-slate-50">
+        <div class="px-5 fade-up">
+            <span class="text-[11px] font-medium text-gold-600 uppercase tracking-widest mb-3 block">What You Get</span>
+            <h2 class="text-2xl font-bold tracking-tight mb-6">Everything for Gold Trading</h2>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white rounded-2xl p-8 border border-slate-200 hover:shadow-lg hover:border-gold-200 transition duration-300 group">
-                    <div class="h-12 w-12 bg-gold-50 rounded-xl flex items-center justify-center mb-5 group-hover:bg-gold-100 transition">
-                        <i data-lucide="zap" class="w-6 h-6 text-gold-600"></i>
+            <div class="space-y-3">
+                <div class="bg-white rounded-xl p-4 border border-slate-200 flex items-start gap-3.5">
+                    <div class="h-10 w-10 bg-gold-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="zap" class="w-5 h-5 text-gold-600"></i>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2">2-4 Daily Gold Signals</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Precision XAU/USD setups with entry, multiple TPs, and SL. Optimized for London & NY sessions when gold moves most.</p>
+                    <div>
+                        <h3 class="text-[14px] font-semibold mb-0.5">2-4 Daily Gold Signals</h3>
+                        <p class="text-[12px] text-slate-500 leading-relaxed">Entry, multiple TPs, SL. London & NY sessions.</p>
+                    </div>
                 </div>
 
-                <div class="bg-white rounded-2xl p-8 border border-slate-200 hover:shadow-lg hover:border-gold-200 transition duration-300 group">
-                    <div class="h-12 w-12 bg-green-50 rounded-xl flex items-center justify-center mb-5 group-hover:bg-green-100 transition">
-                        <i data-lucide="bar-chart-3" class="w-6 h-6 text-green-600"></i>
+                <div class="bg-white rounded-xl p-4 border border-slate-200 flex items-start gap-3.5">
+                    <div class="h-10 w-10 bg-green-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-green-600"></i>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2">Gold Market Analysis</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Daily gold analysis covering DXY correlation, bond yields, Fed sentiment, and key technical levels that move price.</p>
+                    <div>
+                        <h3 class="text-[14px] font-semibold mb-0.5">Gold Market Analysis</h3>
+                        <p class="text-[12px] text-slate-500 leading-relaxed">DXY correlation, bond yields, Fed sentiment, key levels.</p>
+                    </div>
                 </div>
 
-                <div class="bg-white rounded-2xl p-8 border border-slate-200 hover:shadow-lg hover:border-gold-200 transition duration-300 group">
-                    <div class="h-12 w-12 bg-purple-50 rounded-xl flex items-center justify-center mb-5 group-hover:bg-purple-100 transition">
-                        <i data-lucide="shield-check" class="w-6 h-6 text-purple-600"></i>
+                <div class="bg-white rounded-xl p-4 border border-slate-200 flex items-start gap-3.5">
+                    <div class="h-10 w-10 bg-purple-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="shield-check" class="w-5 h-5 text-purple-600"></i>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2">Smart Risk Management</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Every signal includes lot size calculations based on your account. We never risk more than 1-2% per gold trade.</p>
+                    <div>
+                        <h3 class="text-[14px] font-semibold mb-0.5">Smart Risk Management</h3>
+                        <p class="text-[12px] text-slate-500 leading-relaxed">Lot sizes for every account. Max 1-2% risk per trade.</p>
+                    </div>
                 </div>
 
-                <div class="bg-white rounded-2xl p-8 border border-slate-200 hover:shadow-lg hover:border-gold-200 transition duration-300 group">
-                    <div class="h-12 w-12 bg-orange-50 rounded-xl flex items-center justify-center mb-5 group-hover:bg-orange-100 transition">
-                        <i data-lucide="bell-ring" class="w-6 h-6 text-orange-600"></i>
+                <div class="bg-white rounded-xl p-4 border border-slate-200 flex items-start gap-3.5">
+                    <div class="h-10 w-10 bg-orange-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="bell-ring" class="w-5 h-5 text-orange-600"></i>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2">Instant Telegram Alerts</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Gold moves fast. Get instant notifications the second we post a signal — never miss a $20+ gold move again.</p>
+                    <div>
+                        <h3 class="text-[14px] font-semibold mb-0.5">Instant Telegram Alerts</h3>
+                        <p class="text-[12px] text-slate-500 leading-relaxed">Never miss a $20+ gold move again.</p>
+                    </div>
                 </div>
 
-                <div class="bg-white rounded-2xl p-8 border border-slate-200 hover:shadow-lg hover:border-gold-200 transition duration-300 group">
-                    <div class="h-12 w-12 bg-cyan-50 rounded-xl flex items-center justify-center mb-5 group-hover:bg-cyan-100 transition">
-                        <i data-lucide="graduation-cap" class="w-6 h-6 text-cyan-600"></i>
+                <div class="bg-white rounded-xl p-4 border border-slate-200 flex items-start gap-3.5">
+                    <div class="h-10 w-10 bg-cyan-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="graduation-cap" class="w-5 h-5 text-cyan-600"></i>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2">Gold Trading Education</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Learn how to read gold like a pro — support/resistance, session opens, NFP & CPI trading strategies for XAU.</p>
+                    <div>
+                        <h3 class="text-[14px] font-semibold mb-0.5">Gold Trading Education</h3>
+                        <p class="text-[12px] text-slate-500 leading-relaxed">S/R, session opens, NFP & CPI strategies for XAU.</p>
+                    </div>
                 </div>
 
-                <div class="bg-white rounded-2xl p-8 border border-slate-200 hover:shadow-lg hover:border-gold-200 transition duration-300 group">
-                    <div class="h-12 w-12 bg-rose-50 rounded-xl flex items-center justify-center mb-5 group-hover:bg-rose-100 transition">
-                        <i data-lucide="target" class="w-6 h-6 text-rose-600"></i>
+                <div class="bg-white rounded-xl p-4 border border-slate-200 flex items-start gap-3.5">
+                    <div class="h-10 w-10 bg-rose-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="target" class="w-5 h-5 text-rose-600"></i>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2">News Trade Alerts</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Gold explodes on news. We send pre-analysis and entry plans before NFP, CPI, FOMC, and PPI — the big gold movers.</p>
+                    <div>
+                        <h3 class="text-[14px] font-semibold mb-0.5">News Trade Alerts</h3>
+                        <p class="text-[12px] text-slate-500 leading-relaxed">Pre-analysis before NFP, CPI, FOMC, PPI.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Gold Section -->
-    <section class="py-24 bg-white">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <span class="text-xs font-medium text-gold-600 uppercase tracking-widest mb-4 block">Why XAU/USD?</span>
-                    <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-6">Gold Is the Most Profitable Instrument to Trade</h2>
-                    <p class="text-slate-500 text-lg leading-relaxed mb-8">With daily ranges of $15-$40, tight spreads on most brokers, and strong technical patterns — gold offers more consistent opportunities than any forex pair.</p>
+    <!-- Why Gold -->
+    <section class="py-8 bg-white">
+        <div class="px-5 fade-up">
+            <span class="text-[11px] font-medium text-gold-600 uppercase tracking-widest mb-3 block">Why XAU/USD?</span>
+            <h2 class="text-2xl font-bold tracking-tight mb-2">Gold Is the Most Profitable Instrument</h2>
+            <p class="text-sm text-slate-500 leading-relaxed mb-6">$15-40 daily range, strong technicals, news-driven moves.</p>
 
-                    <div class="space-y-5">
-                        <div class="flex items-start gap-4">
-                            <div class="h-8 w-8 bg-gold-50 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="trending-up" class="w-4 h-4 text-gold-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-sm font-semibold mb-1">$15-40 Daily Range</h4>
-                                <p class="text-sm text-slate-500">More pips per day than any major pair. More opportunity, more profit potential.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="h-8 w-8 bg-gold-50 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="layers" class="w-4 h-4 text-gold-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-sm font-semibold mb-1">Respects Technical Levels</h4>
-                                <p class="text-sm text-slate-500">Gold follows support/resistance, trendlines, and Fibonacci better than most instruments.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="h-8 w-8 bg-gold-50 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="activity" class="w-4 h-4 text-gold-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-sm font-semibold mb-1">News-Driven Moves</h4>
-                                <p class="text-sm text-slate-500">NFP, CPI, FOMC — gold moves $20-50 on major news. We prepare you for every event.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="h-8 w-8 bg-gold-50 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="dollar-sign" class="w-4 h-4 text-gold-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-sm font-semibold mb-1">Low Spreads Now</h4>
-                                <p class="text-sm text-slate-500">Most ECN brokers offer 15-25 cent spreads on gold. The cost of trading gold has never been lower.</p>
-                            </div>
-                        </div>
+            <div class="space-y-4">
+                <div class="flex items-start gap-3">
+                    <div class="h-8 w-8 bg-gold-50 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <i data-lucide="trending-up" class="w-4 h-4 text-gold-600"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-[13px] font-semibold mb-0.5">$15-40 Daily Range</h4>
+                        <p class="text-[12px] text-slate-500">More points per day than any major pair.</p>
                     </div>
                 </div>
-
-                <div class="relative">
-                    <div class="rounded-2xl overflow-hidden shadow-2xl">
-                        <img src="https://picsum.photos/seed/gold-chart-analysis/700/800.jpg" alt="Gold chart analysis" class="w-full h-auto object-cover">
+                <div class="flex items-start gap-3">
+                    <div class="h-8 w-8 bg-gold-50 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <i data-lucide="layers" class="w-4 h-4 text-gold-600"></i>
                     </div>
-                    <!-- Floating stat card -->
-                    <div class="absolute -bottom-6 -left-6 bg-white rounded-xl p-5 shadow-xl border border-slate-100">
-                        <div class="text-xs text-slate-400 mb-1">Today's Gold Range</div>
-                        <div class="text-2xl font-semibold text-gold-600">$28.40</div>
-                        <div class="text-xs text-green-500 font-medium mt-1">↑ Above average</div>
+                    <div>
+                        <h4 class="text-[13px] font-semibold mb-0.5">Respects Technical Levels</h4>
+                        <p class="text-[12px] text-slate-500">S/R, trendlines, Fib — gold follows them perfectly.</p>
                     </div>
-                    <div class="absolute -top-4 -right-4 bg-white rounded-xl p-4 shadow-xl border border-slate-100">
-                        <div class="text-xs text-slate-400 mb-1">Avg Daily Points</div>
-                        <div class="text-xl font-semibold">$32.60</div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <div class="h-8 w-8 bg-gold-50 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <i data-lucide="activity" class="w-4 h-4 text-gold-600"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-[13px] font-semibold mb-0.5">News-Driven $20-50 Moves</h4>
+                        <p class="text-[12px] text-slate-500">NFP, CPI, FOMC — gold explodes on news.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <div class="h-8 w-8 bg-gold-50 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <i data-lucide="dollar-sign" class="w-4 h-4 text-gold-600"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-[13px] font-semibold mb-0.5">Low Spreads (15-25 cents)</h4>
+                        <p class="text-[12px] text-slate-500">ECN brokers made gold cheaper to trade than ever.</p>
                     </div>
                 </div>
             </div>
@@ -532,324 +453,295 @@
     </section>
 
     <!-- How It Works -->
-    <section class="py-24 bg-slate-50">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-xs font-medium text-gold-600 uppercase tracking-widest mb-4 block">How It Works</span>
-                <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-4">Start Trading Gold in 60 Seconds</h2>
-            </div>
+    <section class="py-8 bg-slate-50">
+        <div class="px-5 fade-up">
+            <span class="text-[11px] font-medium text-gold-600 uppercase tracking-widest mb-3 block">How It Works</span>
+            <h2 class="text-2xl font-bold tracking-tight mb-6">Start in 60 Seconds</h2>
 
-            <div class="grid md:grid-cols-3 gap-8 relative">
-                <div class="hidden md:block absolute top-12 left-[20%] right-[20%] h-px bg-gold-200"></div>
-
-                <div class="text-center relative">
-                    <div class="h-24 w-24 gold-gradient rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-semibold relative z-10 shadow-lg" style="box-shadow: 0 8px 24px rgba(245,158,11,0.3);">1</div>
-                    <h3 class="text-lg font-semibold mb-2">Join the Channel</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed max-w-xs mx-auto">Click the button, open Telegram, and you're in. Completely free, no signup forms.</p>
+            <div class="space-y-4">
+                <div class="flex items-center gap-4">
+                    <div class="h-12 w-12 gold-gradient rounded-full flex items-center justify-center text-white text-lg font-bold flex-shrink-0" style="box-shadow: 0 4px 16px rgba(245,158,11,0.3);">1</div>
+                    <div>
+                        <h3 class="text-[14px] font-semibold">Join the Channel</h3>
+                        <p class="text-[12px] text-slate-500">Tap the button, open Telegram. 2 seconds.</p>
+                    </div>
                 </div>
-
-                <div class="text-center relative">
-                    <div class="h-24 w-24 gold-gradient rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-semibold relative z-10 shadow-lg" style="box-shadow: 0 8px 24px rgba(245,158,11,0.3);">2</div>
-                    <h3 class="text-lg font-semibold mb-2">Get Gold Signals</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed max-w-xs mx-auto">Receive 2-4 XAU/USD signals daily with entry, TP1, TP2, TP3 and stop loss.</p>
+                <div class="ml-6 w-px h-4 bg-gold-200"></div>
+                <div class="flex items-center gap-4">
+                    <div class="h-12 w-12 gold-gradient rounded-full flex items-center justify-center text-white text-lg font-bold flex-shrink-0" style="box-shadow: 0 4px 16px rgba(245,158,11,0.3);">2</div>
+                    <div>
+                        <h3 class="text-[14px] font-semibold">Get Gold Signals</h3>
+                        <p class="text-[12px] text-slate-500">2-4 XAU/USD signals daily with all levels.</p>
+                    </div>
                 </div>
-
-                <div class="text-center relative">
-                    <div class="h-24 w-24 gold-gradient rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-semibold relative z-10 shadow-lg" style="box-shadow: 0 8px 24px rgba(245,158,11,0.3);">3</div>
-                    <h3 class="text-lg font-semibold mb-2">Copy & Profit</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed max-w-xs mx-auto">Paste the levels into your broker. Set it and forget it. Watch the profits hit TP.</p>
+                <div class="ml-6 w-px h-4 bg-gold-200"></div>
+                <div class="flex items-center gap-4">
+                    <div class="h-12 w-12 gold-gradient rounded-full flex items-center justify-center text-white text-lg font-bold flex-shrink-0" style="box-shadow: 0 4px 16px rgba(245,158,11,0.3);">3</div>
+                    <div>
+                        <h3 class="text-[14px] font-semibold">Copy & Profit</h3>
+                        <p class="text-[12px] text-slate-500">Paste levels, set it, watch TP get hit.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials -->
-    <section id="testimonials" class="py-24 bg-white">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-xs font-medium text-gold-600 uppercase tracking-widest mb-4 block">Trader Reviews</span>
-                <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-4">What Our Gold Traders Say</h2>
-                <p class="text-slate-500 text-lg leading-relaxed">Real results from real XAU/USD traders.</p>
+    <section class="py-8 bg-white">
+        <div class="px-5 fade-up">
+            <span class="text-[11px] font-medium text-gold-600 uppercase tracking-widest mb-3 block">Trader Reviews</span>
+            <h2 class="text-2xl font-bold tracking-tight mb-6">What Gold Traders Say</h2>
+
+            <!-- Horizontal scroll testimonials -->
+            <div class="flex gap-3 overflow-x-auto no-scrollbar -mx-5 px-5 pb-2">
+
+                <div class="min-w-[280px] bg-slate-50 rounded-xl p-4 border border-slate-100 flex-shrink-0">
+                    <div class="flex items-center gap-0.5 mb-3">
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-yellow-400 text-yellow-400"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-yellow-400 text-yellow-400"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-yellow-400 text-yellow-400"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-yellow-400 text-yellow-400"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-yellow-400 text-yellow-400"></i>
+                    </div>
+                    <p class="text-[12px] text-slate-600 leading-relaxed mb-3">"Made $2,400 last month just copying trades. The gold signals are razor sharp."</p>
+                    <div class="flex items-center gap-2.5">
+                        <div class="h-8 w-8 bg-gold-100 rounded-full flex items-center justify-center text-gold-700 font-semibold text-[11px]">AH</div>
+                        <div>
+                            <div class="text-[12px] font-semibold">Ahmed H.</div>
+                            <div class="text-[10px] text-slate-400">UAE</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="min-w-[280px] bg-slate-50 rounded-xl p-4 border border-slate-100 flex-shrink-0">
+                    <div class="flex items-center gap-0.5 mb-3">
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-yellow-400 text-yellow-400"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-yellow-400 text-yellow-400"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-yellow-400 text-yellow-400"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-yellow-400 text-yellow-400"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-yellow-400 text-yellow-400"></i>
+                    </div>
+                    <p class="text-[12px] text-slate-600 leading-relaxed mb-3">"The NFP gold calls are insane. Called a $35 drop perfectly. Never seen anyone read gold like this."</p>
+                    <div class="flex items-center gap-2.5">
+                        <div class="h-8 w-8 bg-green-100 rounded-full flex items-center justify-center text-green-700 font-semibold text-[11px]">JO</div>
+                        <div>
+                            <div class="text-[12px] font-semibold">James O.</div>
+                            <div class="text-[10px] text-slate-400">UK</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="min-w-[280px] bg-slate-50 rounded-xl p-4 border border-slate-100 flex-shrink-0">
+                    <div class="flex items-center gap-0.5 mb-3">
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-yellow-400 text-yellow-400"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-yellow-400 text-yellow-400"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-yellow-400 text-yellow-400"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-yellow-400 text-yellow-400"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-yellow-400 text-yellow-400"></i>
+                    </div>
+                    <p class="text-[12px] text-slate-600 leading-relaxed mb-3">"Passed my $100K FTMO trading ONLY these gold signals. Risk management is what sets this apart."</p>
+                    <div class="flex items-center gap-2.5">
+                        <div class="h-8 w-8 bg-purple-100 rounded-full flex items-center justify-center text-purple-700 font-semibold text-[11px]">PK</div>
+                        <div>
+                            <div class="text-[12px] font-semibold">Priya K.</div>
+                            <div class="text-[10px] text-slate-400">India</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="min-w-[280px] bg-slate-50 rounded-xl p-4 border border-slate-100 flex-shrink-0">
+                    <div class="flex items-center gap-0.5 mb-3">
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-yellow-400 text-yellow-400"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-yellow-400 text-yellow-400"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-yellow-400 text-yellow-400"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-yellow-400 text-yellow-400"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 text-slate-200"></i>
+                    </div>
+                    <p class="text-[12px] text-slate-600 leading-relaxed mb-3">"Started with $500. Now at $2,800 after 2 months. Gold is the way and this channel is the guide."</p>
+                    <div class="flex items-center gap-2.5">
+                        <div class="h-8 w-8 bg-orange-100 rounded-full flex items-center justify-center text-orange-700 font-semibold text-[11px]">FN</div>
+                        <div>
+                            <div class="text-[12px] font-semibold">Fatima N.</div>
+                            <div class="text-[10px] text-slate-400">Nigeria</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="min-w-[280px] bg-slate-50 rounded-xl p-4 border border-slate-100 flex-shrink-0">
+                    <div class="flex items-center gap-0.5 mb-3">
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-yellow-400 text-yellow-400"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-yellow-400 text-yellow-400"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-yellow-400 text-yellow-400"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-yellow-400 text-yellow-400"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-yellow-400 text-yellow-400"></i>
+                    </div>
+                    <p class="text-[12px] text-slate-600 leading-relaxed mb-3">"They only trade gold. No 20 pairs. Pure focus and it shows. 80%+ win rate is real."</p>
+                    <div class="flex items-center gap-2.5">
+                        <div class="h-8 w-8 bg-cyan-100 rounded-full flex items-center justify-center text-cyan-700 font-semibold text-[11px]">DL</div>
+                        <div>
+                            <div class="text-[12px] font-semibold">Daniel L.</div>
+                            <div class="text-[10px] text-slate-400">Germany</div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+            <!-- Scroll hint -->
+            <div class="flex items-center justify-center gap-1.5 mt-3 text-slate-400">
+                <i data-lucide="move-horizontal" class="w-3.5 h-3.5"></i>
+                <span class="text-[10px]">Scroll to see more</span>
+            </div>
+        </div>
+    </section>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
-                    <div class="flex items-center gap-1 mb-4">
-                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
-                    </div>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-5">"I switched from forex pairs to gold exclusively after joining this channel. The signals are razor sharp. Made $2,400 last month just copying trades."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="h-10 w-10 bg-gold-100 rounded-full flex items-center justify-center text-gold-700 font-semibold text-sm">AH</div>
-                        <div>
-                            <div class="text-sm font-semibold">Ahmed H.</div>
-                            <div class="text-xs text-slate-400">Gold Trader, UAE</div>
-                        </div>
+    <!-- FAQ -->
+    <section class="py-8 bg-slate-50">
+        <div class="px-5 fade-up">
+            <span class="text-[11px] font-medium text-gold-600 uppercase tracking-widest mb-3 block">FAQ</span>
+            <h2 class="text-2xl font-bold tracking-tight mb-5">Common Questions</h2>
+
+            <div class="space-y-2" id="faq-container">
+                <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden">
+                    <button class="faq-toggle w-full flex items-center justify-between p-4 text-left press" onclick="toggleFaq(this)">
+                        <span class="text-[13px] font-semibold pr-4">Is this really free?</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 flex-shrink-0 transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-content hidden px-4 pb-4">
+                        <p class="text-[12px] text-slate-500 leading-relaxed">Yes! Free channel gives you daily XAU/USD signals, gold analysis & education at zero cost. We also have a premium tier for exclusive setups, but free delivers real value.</p>
                     </div>
                 </div>
 
-                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
-                    <div class="flex items-center gap-1 mb-4">
-                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
-                    </div>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-5">"The NFP gold calls are absolutely insane. Last NFP they called a $35 drop perfectly. I've never seen anyone read gold like this."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="h-10 w-10 bg-green-100 rounded-full flex items-center justify-center text-green-700 font-semibold text-sm">JO</div>
-                        <div>
-                            <div class="text-sm font-semibold">James O.</div>
-                            <div class="text-xs text-slate-400">Full-time Trader, UK</div>
-                        </div>
+                <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden">
+                    <button class="faq-toggle w-full flex items-center justify-between p-4 text-left press" onclick="toggleFaq(this)">
+                        <span class="text-[13px] font-semibold pr-4">Why only gold?</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 flex-shrink-0 transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-content hidden px-4 pb-4">
+                        <p class="text-[12px] text-slate-500 leading-relaxed">Focus beats variety. By specializing in XAU/USD, we master its behavior. Channels trading 20 pairs usually have mediocre results on all. We'd rather be the best at one.</p>
                     </div>
                 </div>
 
-                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
-                    <div class="flex items-center gap-1 mb-4">
-                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
-                    </div>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-5">"Passed my $100K FTMO challenge trading ONLY these gold signals. The risk management is what sets this apart. No reckless trades."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="h-10 w-10 bg-purple-100 rounded-full flex items-center justify-center text-purple-700 font-semibold text-sm">PK</div>
-                        <div>
-                            <div class="text-sm font-semibold">Priya K.</div>
-                            <div class="text-xs text-slate-400">Prop Firm Trader, India</div>
-                        </div>
+                <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden">
+                    <button class="faq-toggle w-full flex items-center justify-between p-4 text-left press" onclick="toggleFaq(this)">
+                        <span class="text-[13px] font-semibold pr-4">What sessions do you trade?</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 flex-shrink-0 transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-content hidden px-4 pb-4">
+                        <p class="text-[12px] text-slate-500 leading-relaxed">London (3AM-12PM EST) & New York (8AM-5PM EST). Highest volume, cleanest gold moves. We avoid slow Asian session.</p>
                     </div>
                 </div>
 
-                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
-                    <div class="flex items-center gap-1 mb-4">
-                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-slate-200"></i>
-                    </div>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-5">"I was skeptical of signal channels but decided to try. 3 months in, I'm consistently profitable on gold. The daily analysis alone is worth it."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="h-10 w-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 font-semibold text-sm">MT</div>
-                        <div>
-                            <div class="text-sm font-semibold">Michael T.</div>
-                            <div class="text-xs text-slate-400">Part-time Trader, USA</div>
-                        </div>
+                <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden">
+                    <button class="faq-toggle w-full flex items-center justify-between p-4 text-left press" onclick="toggleFaq(this)">
+                        <span class="text-[13px] font-semibold pr-4">Minimum account for gold?</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 flex-shrink-0 transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-content hidden px-4 pb-4">
+                        <p class="text-[12px] text-slate-500 leading-relaxed">$100-200 with micro lots (0.01). We provide lot size for every account size. Never risk more than 1-2% per trade.</p>
                     </div>
                 </div>
 
-                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
-                    <div class="flex items-center gap-1 mb-4">
-                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
-                    </div>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-5">"Started with a $500 account. Now at $2,800 after 2 months. Gold is the way and this channel is the guide. Simple as that."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="h-10 w-10 bg-orange-100 rounded-full flex items-center justify-center text-orange-700 font-semibold text-sm">FN</div>
-                        <div>
-                            <div class="text-sm font-semibold">Fatima N.</div>
-                            <div class="text-xs text-slate-400">Beginner, Nigeria</div>
-                        </div>
+                <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden">
+                    <button class="faq-toggle w-full flex items-center justify-between p-4 text-left press" onclick="toggleFaq(this)">
+                        <span class="text-[13px] font-semibold pr-4">Do you trade during news?</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 flex-shrink-0 transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-content hidden px-4 pb-4">
+                        <p class="text-[12px] text-slate-500 leading-relaxed">Yes — gold loves news. For NFP, CPI, FOMC, PPI we send pre-analysis with bias & key levels. Always explain our strategy.</p>
                     </div>
                 </div>
 
-                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
-                    <div class="flex items-center gap-1 mb-4">
-                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
-                    </div>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-5">"What I love: they only trade gold. No scattered signals on 20 pairs. Pure focus on XAU and it shows in the results. 80%+ win rate is real."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="h-10 w-10 bg-cyan-100 rounded-full flex items-center justify-center text-cyan-700 font-semibold text-sm">DL</div>
-                        <div>
-                            <div class="text-sm font-semibold">Daniel L.</div>
-                            <div class="text-xs text-slate-400">Swing Trader, Germany</div>
-                        </div>
+                <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden">
+                    <button class="faq-toggle w-full flex items-center justify-between p-4 text-left press" onclick="toggleFaq(this)">
+                        <span class="text-[13px] font-semibold pr-4">Best broker for XAU/USD?</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 flex-shrink-0 transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-content hidden px-4 pb-4">
+                        <p class="text-[12px] text-slate-500 leading-relaxed">IC Markets (15-20c spread), Exness (18-25c), or Pepperstone (20-30c). Avoid brokers with 50c+ spreads on gold.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section id="faq" class="py-24 bg-slate-50">
-        <div class="mx-auto max-w-3xl px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="text-xs font-medium text-gold-600 uppercase tracking-widest mb-4 block">FAQ</span>
-                <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-4">Common Questions</h2>
-            </div>
-
-            <div class="space-y-3" id="faq-container">
-                <div class="faq-item border border-slate-200 rounded-xl overflow-hidden bg-white">
-                    <button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-slate-50 transition" onclick="toggleFaq(this)">
-                        <span class="text-sm font-semibold pr-4">Is this really free?</span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform duration-200"></i>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5">
-                        <p class="text-sm text-slate-500 leading-relaxed">Yes! Our free channel gives you daily XAU/USD signals, gold analysis, and education at zero cost. We also have a premium tier for exclusive setups and personal support, but the free channel delivers real value on its own.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item border border-slate-200 rounded-xl overflow-hidden bg-white">
-                    <button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-slate-50 transition" onclick="toggleFaq(this)">
-                        <span class="text-sm font-semibold pr-4">Why only gold (XAU/USD)?</span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform duration-200"></i>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5">
-                        <p class="text-sm text-slate-500 leading-relaxed">Focus beats variety. By specializing exclusively in XAU/USD, we master its behavior — session patterns, news reactions, technical levels. Channels that trade 20 pairs usually have mediocre results on all of them. We'd rather be the best at one.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item border border-slate-200 rounded-xl overflow-hidden bg-white">
-                    <button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-slate-50 transition" onclick="toggleFaq(this)">
-                        <span class="text-sm font-semibold pr-4">What sessions do you trade?</span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform duration-200"></i>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5">
-                        <p class="text-sm text-slate-500 leading-relaxed">Most of our signals come during the London session (3AM-12PM EST) and New York session (8AM-5PM EST). These are when gold has the highest volume and cleanest moves. We avoid the slow Asian session unless there's a specific setup.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item border border-slate-200 rounded-xl overflow-hidden bg-white">
-                    <button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-slate-50 transition" onclick="toggleFaq(this)">
-                        <span class="text-sm font-semibold pr-4">What's the minimum account size for gold?</span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform duration-200"></i>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5">
-                        <p class="text-sm text-slate-500 leading-relaxed">You can start trading gold with as little as $100-200 using micro lots (0.01). We provide lot size recommendations for every account size in each signal. Always use proper risk management — never risk more than 1-2% per trade.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item border border-slate-200 rounded-xl overflow-hidden bg-white">
-                    <button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-slate-50 transition" onclick="toggleFaq(this)">
-                        <span class="text-sm font-semibold pr-4">Do you trade during news events?</span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform duration-200"></i>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5">
-                        <p class="text-sm text-slate-500 leading-relaxed">Yes — gold loves news. For major events (NFP, CPI, FOMC, PPI), we send a pre-event analysis with bias and key levels. Sometimes we enter before the news with tight SL, sometimes we wait for the spike. We always explain our strategy.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item border border-slate-200 rounded-xl overflow-hidden bg-white">
-                    <button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-slate-50 transition" onclick="toggleFaq(this)">
-                        <span class="text-sm font-semibold pr-4">What broker is best for XAU/USD?</span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform duration-200"></i>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5">
-                        <p class="text-sm text-slate-500 leading-relaxed">We recommend ECN brokers with low gold spreads: IC Markets (15-20 cents), Exness (18-25 cents), or Pepperstone (20-30 cents). Avoid brokers with spreads above 50 cents — they'll eat your profits on gold.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="relative overflow-hidden bg-slate-900 py-24">
+    <!-- Final CTA Section -->
+    <section class="relative bg-slate-900 py-10 overflow-hidden">
         <div class="absolute inset-0">
-            <img src="https://picsum.photos/seed/gold-luxury-dark-bg/1920/800.jpg" alt="" class="w-full h-full object-cover opacity-10">
-            <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/95 to-slate-900/80"></div>
+            <img src="https://picsum.photos/seed/gold-cta-mobile/800/600.jpg" alt="" class="w-full h-full object-cover opacity-10">
+            <div class="absolute inset-0 bg-slate-900/90"></div>
         </div>
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gold-500/8 rounded-full blur-3xl"></div>
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] h-[300px] bg-gold-500/10 rounded-full blur-3xl"></div>
 
-        <div class="relative mx-auto max-w-3xl px-6 lg:px-8 text-center">
-            <div class="inline-flex items-center gap-2 bg-gold-500/10 border border-gold-500/20 rounded-full px-4 py-1.5 mb-8">
+        <div class="relative px-5 text-center">
+            <div class="inline-flex items-center gap-2 bg-gold-500/10 border border-gold-500/20 rounded-full px-3 py-1.5 mb-5">
                 <span class="relative flex h-2 w-2">
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-400 opacity-75"></span>
                     <span class="relative inline-flex rounded-full h-2 w-2 bg-gold-500"></span>
                 </span>
-                <span class="text-xs font-medium text-gold-300 tracking-wide">8,500+ GOLD TRADERS AND GROWING</span>
+                <span class="text-[11px] font-medium text-gold-300 tracking-wide">8,500+ GOLD TRADERS</span>
             </div>
 
-            <h2 class="text-3xl md:text-5xl font-semibold text-white tracking-tight leading-tight mb-6">
-                Your Next <span class="gold-shimmer">$20+ Gold Move</span><br>Is One Click Away
+            <h2 class="text-2xl font-bold text-white tracking-tight leading-tight mb-3">
+                Your Next <span class="gold-shimmer">$20+ Gold Move</span> Is One Click Away
             </h2>
-            <p class="text-lg text-slate-400 leading-relaxed max-w-xl mx-auto mb-10">
-                Stop scrolling, start earning. Join 8,500+ gold traders getting precise XAU/USD signals every day — completely free.
+            <p class="text-[14px] text-slate-400 leading-relaxed mb-7 max-w-sm mx-auto">
+                Stop scrolling, start earning. Join free now.
             </p>
 
-            <a href="https://t.me/yourchannel" target="_blank" class="pulse-glow-gold inline-flex items-center justify-center gap-3 gold-gradient text-white font-semibold px-10 py-4 rounded-xl transition text-lg hover:opacity-90" style="box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 4px 20px rgba(245,158,11,0.5);">
-                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-                Join Gold Signals Pro on Telegram
+            <a href="https://t.me/yourchannel" target="_blank" class="pulse-glow-gold press flex items-center justify-center gap-2.5 gold-gradient text-white font-semibold w-full py-4 rounded-2xl text-base mb-4" style="box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 4px 20px rgba(245,158,11,0.5);">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                Join Gold Signals Pro — Free
             </a>
 
-            <div class="flex items-center justify-center gap-6 mt-8">
-                <div class="flex items-center gap-2">
-                    <i data-lucide="check-circle" class="w-4 h-4 text-green-500"></i>
-                    <span class="text-xs text-slate-400">Free forever</span>
+            <div class="flex items-center justify-center gap-4">
+                <div class="flex items-center gap-1.5">
+                    <i data-lucide="check-circle" class="w-3.5 h-3.5 text-green-500"></i>
+                    <span class="text-[11px] text-slate-400">Free forever</span>
                 </div>
-                <div class="flex items-center gap-2">
-                    <i data-lucide="check-circle" class="w-4 h-4 text-green-500"></i>
-                    <span class="text-xs text-slate-400">No spam</span>
-                </div>
-                <div class="flex items-center gap-2">
-                    <i data-lucide="check-circle" class="w-4 h-4 text-green-500"></i>
-                    <span class="text-xs text-slate-400">Unsubscribe anytime</span>
+                <div class="flex items-center gap-1.5">
+                    <i data-lucide="check-circle" class="w-3.5 h-3.5 text-green-500"></i>
+                    <span class="text-[11px] text-slate-400">No spam</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Risk Disclaimer -->
-    <section class="bg-slate-50 border-t border-slate-200 py-8">
-        <div class="mx-auto max-w-4xl px-6 lg:px-8">
-            <div class="flex items-start gap-3">
-                <i data-lucide="alert-triangle" class="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5"></i>
-                <div>
-                    <h4 class="text-xs font-semibold text-slate-700 mb-1 uppercase tracking-wider">Risk Disclaimer</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">Trading XAU/USD (gold) carries a high level of risk and may not be suitable for all investors. Gold is highly volatile and can experience rapid price swings, especially during news events. Past performance is not indicative of future results. You should carefully consider your investment objectives, level of experience, and risk appetite. The possibility exists that you could sustain a loss of some or all of your initial investment and therefore you should not invest money that you cannot afford to lose. This channel provides trade signals for educational purposes only and does not constitute financial advice. Always do your own research and consult with a licensed financial advisor before making any trading decisions.</p>
-                </div>
-            </div>
+    <div class="bg-slate-50 border-t border-slate-200 py-5 px-5">
+        <div class="flex items-start gap-2.5">
+            <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5"></i>
+            <p class="text-[10px] text-slate-400 leading-relaxed">Trading XAU/USD carries high risk. Gold is highly volatile. Past performance ≠ future results. Don't invest money you can't afford to lose. Signals are for education only, not financial advice.</p>
         </div>
-    </section>
+    </div>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 border-t border-slate-800 py-12">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-                <div class="flex items-center gap-2.5">
-                    <div class="h-8 w-8 gold-gradient rounded-lg flex items-center justify-center">
-                        <i data-lucide="gem" class="w-5 h-5 text-white"></i>
-                    </div>
-                    <span class="text-lg font-semibold text-white tracking-tight">Gold Signals <span class="text-gold-500">Pro</span></span>
+    <footer class="bg-slate-900 py-6 px-5">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="h-6 w-6 gold-gradient rounded-md flex items-center justify-center">
+                    <i data-lucide="gem" class="w-3.5 h-3.5 text-white"></i>
                 </div>
-                <div class="flex items-center gap-6">
-                    <a href="https://t.me/yourchannel" target="_blank" class="text-slate-400 hover:text-gold-400 transition text-sm">Telegram</a>
-                    <a href="#" class="text-slate-400 hover:text-gold-400 transition text-sm">Instagram</a>
-                    <a href="#" class="text-slate-400 hover:text-gold-400 transition text-sm">YouTube</a>
-                    <a href="#" class="text-slate-400 hover:text-gold-400 transition text-sm">Twitter</a>
-                </div>
-                <p class="text-xs text-slate-500">© 2025 Gold Signals Pro. All rights reserved.</p>
+                <span class="text-[13px] font-semibold text-white">Gold Signals <span class="text-gold-500">Pro</span></span>
             </div>
+            <p class="text-[10px] text-slate-500">© 2025</p>
         </div>
     </footer>
 
-    <!-- Mobile Sticky CTA -->
-    <div class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-slate-200 p-4 z-50 lg:hidden">
-        <a href="https://t.me/yourchannel" target="_blank" class="flex items-center justify-center gap-2.5 gold-gradient text-white font-semibold w-full py-3.5 rounded-xl transition text-base shadow-lg hover:opacity-90">
+    <!-- Sticky Bottom CTA -->
+    <div class="fixed bottom-0 left-0 right-0 z-50 safe-bottom" style="background: rgba(255,255,255,0.97); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid rgba(226,232,240,0.8); padding: 12px 16px;">
+        <a href="https://t.me/yourchannel" target="_blank" class="press flex items-center justify-center gap-2.5 gold-gradient text-white font-semibold w-full py-3.5 rounded-2xl text-[15px]" style="box-shadow: 0 4px 16px rgba(245,158,11,0.35);">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
             Join 8,500+ Gold Traders — Free
         </a>
     </div>
 
-    <!-- Bottom spacing for mobile CTA -->
-    <div class="h-20 lg:hidden"></div>
+    <!-- Bottom safe spacing for sticky CTA -->
+    <div class="h-24"></div>
 
     <script>
         lucide.createIcons();
 
+        // FAQ Toggle
         function toggleFaq(button) {
             const item = button.parentElement;
             const content = item.querySelector('.faq-content');
@@ -859,41 +751,26 @@
             allItems.forEach(otherItem => {
                 if (otherItem !== item) {
                     otherItem.querySelector('.faq-content').classList.add('hidden');
-                    const otherIcon = otherItem.querySelector('[data-lucide="chevron-down"]');
-                    if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
-                    otherItem.classList.remove('bg-slate-50');
+                    const oi = otherItem.querySelector('[data-lucide="chevron-down"]');
+                    if (oi) oi.style.transform = 'rotate(0deg)';
                 }
             });
 
             const isHidden = content.classList.contains('hidden');
-            if (isHidden) {
-                content.classList.remove('hidden');
-                icon.style.transform = 'rotate(180deg)';
-                item.classList.add('bg-slate-50');
-            } else {
-                content.classList.add('hidden');
-                icon.style.transform = 'rotate(0deg)';
-                item.classList.remove('bg-slate-50');
-            }
+            content.classList.toggle('hidden');
+            icon.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
         }
 
-        // Scroll animations
-        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        // Scroll fade-in
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('visible');
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 
-        document.querySelectorAll('section > div').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
