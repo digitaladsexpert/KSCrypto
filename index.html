@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Gold Signals Pro — XAU/USD Telegram</title>
+    <title>KSC</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -58,10 +58,8 @@
 
         .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(24px); border: 1px solid rgba(255,255,255,0.1); }
 
-        /* Safe area for notched phones */
         .safe-bottom { padding-bottom: max(1rem, env(safe-area-inset-bottom)); }
 
-        /* Smooth fade in */
         .fade-up {
             opacity: 0;
             transform: translateY(16px);
@@ -72,9 +70,47 @@
             transform: translateY(0);
         }
 
-        /* Active press effect */
         .press { transition: transform 0.1s ease; }
         .press:active { transform: scale(0.97); }
+
+        /* Bar grow animation */
+        @keyframes barGrow {
+            from { height: 0%; }
+        }
+        .bar-animate {
+            animation: barGrow 0.8s ease-out forwards;
+        }
+
+        /* Tooltip */
+        .bar-wrapper { position: relative; }
+        .bar-wrapper .bar-tooltip {
+            opacity: 0;
+            transform: translateY(4px);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            pointer-events: none;
+        }
+        .bar-wrapper:hover .bar-tooltip,
+        .bar-wrapper:active .bar-tooltip {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Monthly table row hover */
+        .month-row {
+            transition: background-color 0.15s ease;
+        }
+        .month-row:hover {
+            background-color: rgba(245, 158, 11, 0.04);
+        }
+
+        /* Cumulative line pulse */
+        @keyframes dotPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.5); }
+        }
+        .dot-pulse {
+            animation: dotPulse 2s ease-in-out infinite;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 antialiased">
@@ -104,14 +140,14 @@
                 <div class="h-7 w-7 gold-gradient rounded-md flex items-center justify-center">
                     <i data-lucide="gem" class="w-4 h-4 text-white"></i>
                 </div>
-                <span class="text-sm font-semibold">Gold Signals <span class="text-gold-500">Pro</span></span>
+                <span class="text-sm font-semibold">KS <span class="text-gold-500">Crypto</span></span>
             </div>
             <div class="flex items-center gap-2">
                 <span class="relative flex h-2 w-2 mr-1">
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                     <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                 </span>
-                <span class="text-[11px] text-slate-400">8.5K online</span>
+                <span class="text-[11px] text-slate-400">4.5K online</span>
             </div>
         </div>
     </div>
@@ -125,7 +161,6 @@
         <div class="absolute top-10 -left-32 w-[300px] h-[300px] bg-gold-500/10 rounded-full blur-3xl"></div>
 
         <div class="relative px-5 pt-10 pb-8">
-            <!-- Live badge -->
             <div class="inline-flex items-center gap-2 bg-gold-500/10 border border-gold-500/20 rounded-full px-3 py-1.5 mb-6">
                 <span class="relative flex h-2 w-2">
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-400 opacity-75"></span>
@@ -143,18 +178,16 @@
                 Precise gold signals with entry, TP & SL — delivered instantly to Telegram. <strong class="text-white">8,500+ traders</strong> trust us.
             </p>
 
-            <!-- CTA Button -->
-            <a href="https://t.me/yourchannel" target="_blank" class="pulse-glow-gold press flex items-center justify-center gap-2.5 gold-gradient text-white font-semibold w-full py-4 rounded-2xl text-base mb-4" style="box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 4px 20px rgba(245,158,11,0.4);">
+            <a href="https://t.me/+e_JNZhDz5e84NGY9" target="_blank" class="pulse-glow-gold press flex items-center justify-center gap-2.5 gold-gradient text-white font-semibold w-full py-4 rounded-2xl text-base mb-4" style="box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 4px 20px rgba(245,158,11,0.4);">
                 <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
                 Join Telegram — It's Free
             </a>
 
             <p class="text-center text-[11px] text-slate-500">No spam • Unsubscribe anytime</p>
 
-            <!-- Quick Stats -->
             <div class="grid grid-cols-3 gap-3 mt-8">
                 <div class="bg-white/5 border border-white/10 rounded-xl p-3 text-center">
-                    <div class="text-xl font-bold text-white">8,500+</div>
+                    <div class="text-xl font-bold text-white">4,500+</div>
                     <div class="text-[10px] text-slate-500 mt-0.5">Members</div>
                 </div>
                 <div class="bg-white/5 border border-white/10 rounded-xl p-3 text-center">
@@ -182,7 +215,6 @@
                     <div class="ml-auto bg-gold-500/20 text-gold-400 text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Live</div>
                 </div>
 
-                <!-- Active Signal -->
                 <div class="bg-white/5 rounded-xl p-3.5 mb-2.5 border border-gold-500/10">
                     <div class="flex items-center justify-between mb-2.5">
                         <span class="text-white font-semibold text-[13px]">XAU/USD</span>
@@ -214,7 +246,6 @@
                     </div>
                 </div>
 
-                <!-- Closed Signal -->
                 <div class="bg-white/5 rounded-xl p-3.5 border border-white/5 opacity-70">
                     <div class="flex items-center justify-between">
                         <div>
@@ -243,12 +274,12 @@
         </div>
     </div>
 
-    <!-- Results -->
+    <!-- Results — UPDATED with $100K -->
     <section class="py-8 bg-white">
         <div class="px-5 fade-up">
             <span class="text-[11px] font-medium text-gold-600 uppercase tracking-widest mb-3 block">Verified Results</span>
             <h2 class="text-2xl font-bold tracking-tight mb-2">Our XAU/USD Track Record</h2>
-            <p class="text-sm text-slate-500 leading-relaxed mb-6">Last 12 months on gold only.</p>
+            <p class="text-sm text-slate-500 leading-relaxed mb-6">Last 12 months — real numbers, no fluff.</p>
 
             <div class="grid grid-cols-2 gap-3 mb-6">
                 <div class="bg-slate-50 rounded-xl p-4 text-center border border-slate-100">
@@ -260,8 +291,8 @@
                     <div class="text-[11px] text-slate-500 mt-0.5">Win Rate</div>
                 </div>
                 <div class="bg-slate-50 rounded-xl p-4 text-center border border-slate-100">
-                    <div class="text-2xl font-bold text-gold-600">+$6,240</div>
-                    <div class="text-[11px] text-slate-500 mt-0.5">Points (Year)</div>
+                    <div class="text-2xl font-bold text-gold-600">$100K</div>
+                    <div class="text-[11px] text-slate-500 mt-0.5">Profit (Year)</div>
                 </div>
                 <div class="bg-slate-50 rounded-xl p-4 text-center border border-slate-100">
                     <div class="text-2xl font-bold text-green-600">1:3.2</div>
@@ -269,66 +300,236 @@
                 </div>
             </div>
 
-            <!-- Mini Chart -->
-            <div class="bg-slate-900 rounded-2xl p-5">
-                <div class="flex items-center justify-between mb-5">
+            <!-- Monthly Performance Chart -->
+            <div class="bg-slate-900 rounded-2xl p-5 mb-4">
+                <div class="flex items-center justify-between mb-1">
                     <h3 class="text-white font-semibold text-sm">Monthly Performance</h3>
-                    <span class="text-gold-400 text-sm font-bold">+$6,240</span>
+                    <span class="text-gold-400 text-sm font-bold">+$100,000</span>
                 </div>
-                <div class="flex items-end gap-1.5 h-36">
-                    <div class="flex-1 flex flex-col items-center gap-1">
-                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-sm" style="height: 55%"></div>
+                <p class="text-[10px] text-slate-500 mb-5">Yearly profit breakdown (USD)</p>
+
+                <div class="flex items-end gap-1.5 h-40">
+                    <!-- Jan: $7,500 → 54% -->
+                    <div class="flex-1 flex flex-col items-center gap-1 bar-wrapper">
+                        <div class="bar-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-white text-slate-900 text-[9px] font-bold px-2 py-1 rounded-lg shadow-lg whitespace-nowrap z-10">$7,500</div>
+                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-sm bar-animate" style="height: 54%"></div>
                         <span class="text-[8px] text-slate-500">J</span>
                     </div>
-                    <div class="flex-1 flex flex-col items-center gap-1">
-                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-sm" style="height: 72%"></div>
+                    <!-- Feb: $9,200 → 66% -->
+                    <div class="flex-1 flex flex-col items-center gap-1 bar-wrapper">
+                        <div class="bar-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-white text-slate-900 text-[9px] font-bold px-2 py-1 rounded-lg shadow-lg whitespace-nowrap z-10">$9,200</div>
+                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-sm bar-animate" style="height: 66%; animation-delay: 0.05s;"></div>
                         <span class="text-[8px] text-slate-500">F</span>
                     </div>
-                    <div class="flex-1 flex flex-col items-center gap-1">
-                        <div class="w-full bg-gradient-to-t from-red-700 to-red-400 rounded-t-sm" style="height: 15%"></div>
+                    <!-- Mar: -$1,500 → loss 11% -->
+                    <div class="flex-1 flex flex-col items-center gap-1 bar-wrapper">
+                        <div class="bar-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-red-500 text-white text-[9px] font-bold px-2 py-1 rounded-lg shadow-lg whitespace-nowrap z-10">-$1,500</div>
+                        <div class="w-full bg-gradient-to-t from-red-700 to-red-400 rounded-t-sm bar-animate" style="height: 11%; animation-delay: 0.1s;"></div>
                         <span class="text-[8px] text-slate-500">M</span>
                     </div>
-                    <div class="flex-1 flex flex-col items-center gap-1">
-                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-sm" style="height: 90%"></div>
+                    <!-- Apr: $12,500 → 89% -->
+                    <div class="flex-1 flex flex-col items-center gap-1 bar-wrapper">
+                        <div class="bar-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-white text-slate-900 text-[9px] font-bold px-2 py-1 rounded-lg shadow-lg whitespace-nowrap z-10">$12,500</div>
+                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-sm bar-animate" style="height: 89%; animation-delay: 0.15s;"></div>
                         <span class="text-[8px] text-slate-500">A</span>
                     </div>
-                    <div class="flex-1 flex flex-col items-center gap-1">
-                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-sm" style="height: 60%"></div>
+                    <!-- May: $8,600 → 61% -->
+                    <div class="flex-1 flex flex-col items-center gap-1 bar-wrapper">
+                        <div class="bar-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-white text-slate-900 text-[9px] font-bold px-2 py-1 rounded-lg shadow-lg whitespace-nowrap z-10">$8,600</div>
+                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-sm bar-animate" style="height: 61%; animation-delay: 0.2s;"></div>
                         <span class="text-[8px] text-slate-500">M</span>
                     </div>
-                    <div class="flex-1 flex flex-col items-center gap-1">
-                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-sm" style="height: 82%"></div>
+                    <!-- Jun: $11,000 → 79% -->
+                    <div class="flex-1 flex flex-col items-center gap-1 bar-wrapper">
+                        <div class="bar-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-white text-slate-900 text-[9px] font-bold px-2 py-1 rounded-lg shadow-lg whitespace-nowrap z-10">$11,000</div>
+                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-sm bar-animate" style="height: 79%; animation-delay: 0.25s;"></div>
                         <span class="text-[8px] text-slate-500">J</span>
                     </div>
-                    <div class="flex-1 flex flex-col items-center gap-1">
-                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-sm" style="height: 48%"></div>
+                    <!-- Jul: $7,000 → 50% -->
+                    <div class="flex-1 flex flex-col items-center gap-1 bar-wrapper">
+                        <div class="bar-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-white text-slate-900 text-[9px] font-bold px-2 py-1 rounded-lg shadow-lg whitespace-nowrap z-10">$7,000</div>
+                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-sm bar-animate" style="height: 50%; animation-delay: 0.3s;"></div>
                         <span class="text-[8px] text-slate-500">J</span>
                     </div>
-                    <div class="flex-1 flex flex-col items-center gap-1">
-                        <div class="w-full bg-gradient-to-t from-red-700 to-red-400 rounded-t-sm" style="height: 10%"></div>
+                    <!-- Aug: -$2,000 → loss 14% -->
+                    <div class="flex-1 flex flex-col items-center gap-1 bar-wrapper">
+                        <div class="bar-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-red-500 text-white text-[9px] font-bold px-2 py-1 rounded-lg shadow-lg whitespace-nowrap z-10">-$2,000</div>
+                        <div class="w-full bg-gradient-to-t from-red-700 to-red-400 rounded-t-sm bar-animate" style="height: 14%; animation-delay: 0.35s;"></div>
                         <span class="text-[8px] text-slate-500">A</span>
                     </div>
-                    <div class="flex-1 flex flex-col items-center gap-1">
-                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-sm" style="height: 100%"></div>
+                    <!-- Sep: $14,000 → 100% (highest) -->
+                    <div class="flex-1 flex flex-col items-center gap-1 bar-wrapper">
+                        <div class="bar-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-white text-slate-900 text-[9px] font-bold px-2 py-1 rounded-lg shadow-lg whitespace-nowrap z-10">$14,000 🔥</div>
+                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-sm bar-animate" style="height: 100%; animation-delay: 0.4s;"></div>
                         <span class="text-[8px] text-slate-500">S</span>
                     </div>
-                    <div class="flex-1 flex flex-col items-center gap-1">
-                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-sm" style="height: 68%"></div>
+                    <!-- Oct: $9,900 → 71% -->
+                    <div class="flex-1 flex flex-col items-center gap-1 bar-wrapper">
+                        <div class="bar-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-white text-slate-900 text-[9px] font-bold px-2 py-1 rounded-lg shadow-lg whitespace-nowrap z-10">$9,900</div>
+                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-sm bar-animate" style="height: 71%; animation-delay: 0.45s;"></div>
                         <span class="text-[8px] text-slate-500">O</span>
                     </div>
-                    <div class="flex-1 flex flex-col items-center gap-1">
-                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-sm" style="height: 87%"></div>
+                    <!-- Nov: $12,800 → 91% -->
+                    <div class="flex-1 flex flex-col items-center gap-1 bar-wrapper">
+                        <div class="bar-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-white text-slate-900 text-[9px] font-bold px-2 py-1 rounded-lg shadow-lg whitespace-nowrap z-10">$12,800</div>
+                        <div class="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-sm bar-animate" style="height: 91%; animation-delay: 0.5s;"></div>
                         <span class="text-[8px] text-slate-500">N</span>
                     </div>
-                    <div class="flex-1 flex flex-col items-center gap-1">
-                        <div class="w-full bg-gradient-to-t from-gold-600 to-gold-400 rounded-t-sm" style="height: 50%"></div>
-                        <span class="text-[8px] text-gold-400">D</span>
+                    <!-- Dec: $11,000 → 79% (current) -->
+                    <div class="flex-1 flex flex-col items-center gap-1 bar-wrapper">
+                        <div class="bar-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-gold-500 text-white text-[9px] font-bold px-2 py-1 rounded-lg shadow-lg whitespace-nowrap z-10">$11,000 ●</div>
+                        <div class="w-full bg-gradient-to-t from-gold-600 to-gold-400 rounded-t-sm bar-animate" style="height: 79%; animation-delay: 0.55s;"></div>
+                        <span class="text-[8px] text-gold-400 font-bold">D</span>
                     </div>
                 </div>
+
                 <div class="flex items-center gap-4 mt-4 pt-3 border-t border-white/10">
                     <div class="flex items-center gap-1.5"><div class="w-2.5 h-2.5 rounded-sm bg-green-500"></div><span class="text-[10px] text-slate-400">Profit</span></div>
                     <div class="flex items-center gap-1.5"><div class="w-2.5 h-2.5 rounded-sm bg-red-500"></div><span class="text-[10px] text-slate-400">Loss</span></div>
                     <div class="flex items-center gap-1.5"><div class="w-2.5 h-2.5 rounded-sm bg-gold-500"></div><span class="text-[10px] text-slate-400">Now</span></div>
+                </div>
+            </div>
+
+            <!-- Monthly Breakdown Table -->
+            <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden">
+                <div class="flex items-center justify-between px-4 py-3 bg-slate-50 border-b border-slate-200">
+                    <h3 class="font-semibold text-[13px]">Monthly Profit Breakdown</h3>
+                    <span class="text-[10px] text-gold-600 font-bold bg-gold-50 px-2 py-0.5 rounded-full">TOTAL: $100,000</span>
+                </div>
+
+                <!-- Table Header -->
+                <div class="grid grid-cols-12 gap-0 px-4 py-2 bg-slate-50/50 border-b border-slate-100">
+                    <div class="col-span-3 text-[9px] font-bold text-slate-400 uppercase tracking-wider">Month</div>
+                    <div class="col-span-4 text-[9px] font-bold text-slate-400 uppercase tracking-wider text-right">Return</div>
+                    <div class="col-span-5 text-[9px] font-bold text-slate-400 uppercase tracking-wider text-right">Cumulative</div>
+                </div>
+
+                <!-- Jan -->
+                <div class="grid grid-cols-12 gap-0 px-4 py-2.5 border-b border-slate-50 month-row items-center">
+                    <div class="col-span-3 text-[12px] font-medium">January</div>
+                    <div class="col-span-4 text-[12px] font-semibold text-green-600 text-right">+$7,500</div>
+                    <div class="col-span-5 text-right">
+                        <span class="text-[11px] text-slate-500">$7,500</span>
+                        <div class="w-full h-1 bg-slate-100 rounded-full mt-1 overflow-hidden"><div class="h-full bg-green-400 rounded-full" style="width: 7.5%"></div></div>
+                    </div>
+                </div>
+                <!-- Feb -->
+                <div class="grid grid-cols-12 gap-0 px-4 py-2.5 border-b border-slate-50 month-row items-center">
+                    <div class="col-span-3 text-[12px] font-medium">February</div>
+                    <div class="col-span-4 text-[12px] font-semibold text-green-600 text-right">+$9,200</div>
+                    <div class="col-span-5 text-right">
+                        <span class="text-[11px] text-slate-500">$16,700</span>
+                        <div class="w-full h-1 bg-slate-100 rounded-full mt-1 overflow-hidden"><div class="h-full bg-green-400 rounded-full" style="width: 16.7%"></div></div>
+                    </div>
+                </div>
+                <!-- Mar -->
+                <div class="grid grid-cols-12 gap-0 px-4 py-2.5 border-b border-slate-50 month-row items-center bg-red-50/30">
+                    <div class="col-span-3 text-[12px] font-medium">March</div>
+                    <div class="col-span-4 text-[12px] font-semibold text-red-500 text-right">-$1,500</div>
+                    <div class="col-span-5 text-right">
+                        <span class="text-[11px] text-slate-500">$15,200</span>
+                        <div class="w-full h-1 bg-slate-100 rounded-full mt-1 overflow-hidden"><div class="h-full bg-green-400 rounded-full" style="width: 15.2%"></div></div>
+                    </div>
+                </div>
+                <!-- Apr -->
+                <div class="grid grid-cols-12 gap-0 px-4 py-2.5 border-b border-slate-50 month-row items-center">
+                    <div class="col-span-3 text-[12px] font-medium">April</div>
+                    <div class="col-span-4 text-[12px] font-semibold text-green-600 text-right">+$12,500</div>
+                    <div class="col-span-5 text-right">
+                        <span class="text-[11px] text-slate-500">$27,700</span>
+                        <div class="w-full h-1 bg-slate-100 rounded-full mt-1 overflow-hidden"><div class="h-full bg-green-400 rounded-full" style="width: 27.7%"></div></div>
+                    </div>
+                </div>
+                <!-- May -->
+                <div class="grid grid-cols-12 gap-0 px-4 py-2.5 border-b border-slate-50 month-row items-center">
+                    <div class="col-span-3 text-[12px] font-medium">May</div>
+                    <div class="col-span-4 text-[12px] font-semibold text-green-600 text-right">+$8,600</div>
+                    <div class="col-span-5 text-right">
+                        <span class="text-[11px] text-slate-500">$36,300</span>
+                        <div class="w-full h-1 bg-slate-100 rounded-full mt-1 overflow-hidden"><div class="h-full bg-green-400 rounded-full" style="width: 36.3%"></div></div>
+                    </div>
+                </div>
+                <!-- Jun -->
+                <div class="grid grid-cols-12 gap-0 px-4 py-2.5 border-b border-slate-50 month-row items-center">
+                    <div class="col-span-3 text-[12px] font-medium">June</div>
+                    <div class="col-span-4 text-[12px] font-semibold text-green-600 text-right">+$11,000</div>
+                    <div class="col-span-5 text-right">
+                        <span class="text-[11px] text-slate-500">$47,300</span>
+                        <div class="w-full h-1 bg-slate-100 rounded-full mt-1 overflow-hidden"><div class="h-full bg-green-400 rounded-full" style="width: 47.3%"></div></div>
+                    </div>
+                </div>
+                <!-- Jul -->
+                <div class="grid grid-cols-12 gap-0 px-4 py-2.5 border-b border-slate-50 month-row items-center">
+                    <div class="col-span-3 text-[12px] font-medium">July</div>
+                    <div class="col-span-4 text-[12px] font-semibold text-green-600 text-right">+$7,000</div>
+                    <div class="col-span-5 text-right">
+                        <span class="text-[11px] text-slate-500">$54,300</span>
+                        <div class="w-full h-1 bg-slate-100 rounded-full mt-1 overflow-hidden"><div class="h-full bg-green-400 rounded-full" style="width: 54.3%"></div></div>
+                    </div>
+                </div>
+                <!-- Aug -->
+                <div class="grid grid-cols-12 gap-0 px-4 py-2.5 border-b border-slate-50 month-row items-center bg-red-50/30">
+                    <div class="col-span-3 text-[12px] font-medium">August</div>
+                    <div class="col-span-4 text-[12px] font-semibold text-red-500 text-right">-$2,000</div>
+                    <div class="col-span-5 text-right">
+                        <span class="text-[11px] text-slate-500">$52,300</span>
+                        <div class="w-full h-1 bg-slate-100 rounded-full mt-1 overflow-hidden"><div class="h-full bg-green-400 rounded-full" style="width: 52.3%"></div></div>
+                    </div>
+                </div>
+                <!-- Sep -->
+                <div class="grid grid-cols-12 gap-0 px-4 py-2.5 border-b border-slate-50 month-row items-center bg-green-50/50">
+                    <div class="col-span-3 text-[12px] font-medium">September</div>
+                    <div class="col-span-4 text-[12px] font-bold text-green-600 text-right">+$14,000 🔥</div>
+                    <div class="col-span-5 text-right">
+                        <span class="text-[11px] text-slate-500">$66,300</span>
+                        <div class="w-full h-1 bg-slate-100 rounded-full mt-1 overflow-hidden"><div class="h-full bg-green-400 rounded-full" style="width: 66.3%"></div></div>
+                    </div>
+                </div>
+                <!-- Oct -->
+                <div class="grid grid-cols-12 gap-0 px-4 py-2.5 border-b border-slate-50 month-row items-center">
+                    <div class="col-span-3 text-[12px] font-medium">October</div>
+                    <div class="col-span-4 text-[12px] font-semibold text-green-600 text-right">+$9,900</div>
+                    <div class="col-span-5 text-right">
+                        <span class="text-[11px] text-slate-500">$76,200</span>
+                        <div class="w-full h-1 bg-slate-100 rounded-full mt-1 overflow-hidden"><div class="h-full bg-green-400 rounded-full" style="width: 76.2%"></div></div>
+                    </div>
+                </div>
+                <!-- Nov -->
+                <div class="grid grid-cols-12 gap-0 px-4 py-2.5 border-b border-slate-50 month-row items-center">
+                    <div class="col-span-3 text-[12px] font-medium">November</div>
+                    <div class="col-span-4 text-[12px] font-semibold text-green-600 text-right">+$12,800</div>
+                    <div class="col-span-5 text-right">
+                        <span class="text-[11px] text-slate-500">$89,000</span>
+                        <div class="w-full h-1 bg-slate-100 rounded-full mt-1 overflow-hidden"><div class="h-full bg-green-400 rounded-full" style="width: 89%"></div></div>
+                    </div>
+                </div>
+                <!-- Dec -->
+                <div class="grid grid-cols-12 gap-0 px-4 py-3 month-row items-center bg-gold-50/60 border-l-2 border-l-gold-500">
+                    <div class="col-span-3 text-[12px] font-bold text-gold-700">December</div>
+                    <div class="col-span-4 text-[12px] font-bold text-gold-600 text-right">+$11,000</div>
+                    <div class="col-span-5 text-right">
+                        <span class="text-[12px] font-bold text-gold-700">$100,000 ✓</span>
+                        <div class="w-full h-1 bg-slate-100 rounded-full mt-1 overflow-hidden"><div class="h-full gold-gradient rounded-full" style="width: 100%"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary Cards -->
+            <div class="grid grid-cols-3 gap-2 mt-4">
+                <div class="bg-green-50 border border-green-200 rounded-xl p-3 text-center">
+                    <div class="text-[10px] text-green-600 font-medium mb-1">Best Month</div>
+                    <div class="text-[13px] font-bold text-green-700">$14,000</div>
+                    <div class="text-[9px] text-green-500">September</div>
+                </div>
+                <div class="bg-red-50 border border-red-200 rounded-xl p-3 text-center">
+                    <div class="text-[10px] text-red-600 font-medium mb-1">Worst Month</div>
+                    <div class="text-[13px] font-bold text-red-700">-$2,000</div>
+                    <div class="text-[9px] text-red-500">August</div>
+                </div>
+                <div class="bg-gold-50 border border-gold-200 rounded-xl p-3 text-center">
+                    <div class="text-[10px] text-gold-600 font-medium mb-1">Avg / Month</div>
+                    <div class="text-[13px] font-bold text-gold-700">$8,333</div>
+                    <div class="text-[9px] text-gold-500">10 of 12 green</div>
                 </div>
             </div>
         </div>
@@ -492,7 +693,6 @@
             <span class="text-[11px] font-medium text-gold-600 uppercase tracking-widest mb-3 block">Trader Reviews</span>
             <h2 class="text-2xl font-bold tracking-tight mb-6">What Gold Traders Say</h2>
 
-            <!-- Horizontal scroll testimonials -->
             <div class="flex gap-3 overflow-x-auto no-scrollbar -mx-5 px-5 pb-2">
 
                 <div class="min-w-[280px] bg-slate-50 rounded-xl p-4 border border-slate-100 flex-shrink-0">
@@ -586,7 +786,6 @@
                 </div>
 
             </div>
-            <!-- Scroll hint -->
             <div class="flex items-center justify-center gap-1.5 mt-3 text-slate-400">
                 <i data-lucide="move-horizontal" class="w-3.5 h-3.5"></i>
                 <span class="text-[10px]">Scroll to see more</span>
@@ -657,7 +856,7 @@
                         <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 flex-shrink-0 transition-transform duration-200"></i>
                     </button>
                     <div class="faq-content hidden px-4 pb-4">
-                        <p class="text-[12px] text-slate-500 leading-relaxed">IC Markets (15-20c spread), Exness (18-25c), or Pepperstone (20-30c). Avoid brokers with 50c+ spreads on gold.</p>
+                        <p class="text-[12px] text-slate-500 leading-relaxed">EC Markets (15-20c spread), Exness (18-25c), or XM (20-30c). Avoid brokers with 50c+ spreads on gold.</p>
                     </div>
                 </div>
             </div>
@@ -688,7 +887,7 @@
                 Stop scrolling, start earning. Join free now.
             </p>
 
-            <a href="https://t.me/yourchannel" target="_blank" class="pulse-glow-gold press flex items-center justify-center gap-2.5 gold-gradient text-white font-semibold w-full py-4 rounded-2xl text-base mb-4" style="box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 4px 20px rgba(245,158,11,0.5);">
+            <a href="https://t.me/+e_JNZhDz5e84NGY9" target="_blank" class="pulse-glow-gold press flex items-center justify-center gap-2.5 gold-gradient text-white font-semibold w-full py-4 rounded-2xl text-base mb-4" style="box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 4px 20px rgba(245,158,11,0.5);">
                 <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
                 Join Gold Signals Pro — Free
             </a>
@@ -729,7 +928,7 @@
 
     <!-- Sticky Bottom CTA -->
     <div class="fixed bottom-0 left-0 right-0 z-50 safe-bottom" style="background: rgba(255,255,255,0.97); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid rgba(226,232,240,0.8); padding: 12px 16px;">
-        <a href="https://t.me/yourchannel" target="_blank" class="press flex items-center justify-center gap-2.5 gold-gradient text-white font-semibold w-full py-3.5 rounded-2xl text-[15px]" style="box-shadow: 0 4px 16px rgba(245,158,11,0.35);">
+        <a href="https://t.me/+e_JNZhDz5e84NGY9" target="_blank" class="press flex items-center justify-center gap-2.5 gold-gradient text-white font-semibold w-full py-3.5 rounded-2xl text-[15px]" style="box-shadow: 0 4px 16px rgba(245,158,11,0.35);">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
             Join 8,500+ Gold Traders — Free
         </a>
